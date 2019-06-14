@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Roboto;
+    src: url('assets/fonts/Roboto-Medium.ttf');
+}
+.mb20{
+    margin-bottom: 20px;
+}
+
+.product-hot{
+  .slick-slide {
+    margin: 0 27px;
+  }
+  .slick-list {
+    margin: 0 -27px;
+  }
+  .slick-prev:before{
+    content: "" !important;
+  }
+  .slick-next:before{
+    content: "" !important;
+  }
+  .slick-next{
+    background-image: url('/assets/images/arrow-right.png') !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-repeat: no-repeat !important;
+    background-size: 30px 30px !important;
+    position: absolute;
+    right: -30px;
+    z-index: 999;
+  }
+  .slick-prev{
+    background-image: url('/assets/images/arrow-left.png') !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-repeat: no-repeat !important;
+    background-size: 30px 30px !important;
+    position: absolute;
+    left: -30px;
+    z-index: 999;
+  }
+
+  .slick-slide img{
+    height: 225px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  @media screen and (max-width: 414px){
+    .slick-next{
+      right: 0px;
+    }
+
+    .slick-prev{
+      left: 0px;
+    }
+  }
+}
+ 
+.howtobuy{
+  position: relative;
+  button.slick-next{
+    display: none !important;
+  }
+  .slick-dots {
+    bottom: 50px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    z-index: 999;
+  }
+  .slick-dots li {
+    display: inline-block;
+    float: left;
+    list-style: none;
+    margin: 0 8px 0 7px;
+  }
+  .slick-dots li button {
+    width: 25px !important;
+    height: 5px !important;
+    margin: 0 !important;
+    border-radius: 7px !important;
+    background: #E5E5E5;
+  }
+  .slick-dots li button:before{
+    content: '';
+  }
+  .slick-dots li.slick-active button{
+    background: linear-gradient(90deg, #FF9F55 -3.02%, #FFD255 108.08%) !important;
+    border-radius: 7px;
+  }
+  @media screen and (max-width: 576px) {
+    .slick-dots {
+        bottom: 0px;
+    }
+  }
+}
+
+.companyhot{
+  .slick-slide{
+    margin-right: 40px;
+  }
+  .slick-slide {
+    margin: 0 27px;
+  }
+  .slick-list {
+    margin: 0 -27px;
+  }
+  .slick-prev:before{
+    content: "" !important;
+  }
+  .slick-next:before{
+    content: "" !important;
+  }
+  .slick-next{
+    background-image: url('/assets/images/arrow-right.png') !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-repeat: no-repeat !important;
+    background-size: 30px 30px !important;
+    position: absolute;
+    right: -30px;
+    z-index: 999;
+  }
+  .slick-prev{
+    background-image: url('/assets/images/arrow-left.png') !important;
+    width: 30px !important;
+    height: 30px !important;
+    background-repeat: no-repeat !important;
+    background-size: 30px 30px !important;
+    position: absolute;
+    left: -30px;
+    z-index: 999;
+  }
+
+}
+.error{
+  color: #ec1e24;
+  margin: 5px 0px;
+}
+
+.modal-content{
+  background: linear-gradient(180deg, #00A0D8 0%, #004E8E 100%) !important; 
+  background-clip: unset !important;
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+}
+
+@media screen and (max-width: 576px){
+  .modal-content{
+    width: 90% !important;
+    top: 30px;
+  }
+
+  .companyhot{
+    .slick-slide{
+      margin: 0px 15px;
+    }
+
+    .slick-next{
+      background-image: url('/assets/images/arrow-right.png') !important;
+      width: 30px !important;
+      height: 30px !important;
+      background-repeat: no-repeat !important;
+      background-size: 30px 30px !important;
+      position: absolute;
+      right: -10px;
+      z-index: 999;
+    }
+    .slick-prev{
+      background-image: url('/assets/images/arrow-left.png') !important;
+      width: 30px !important;
+      height: 30px !important;
+      background-repeat: no-repeat !important;
+      background-size: 30px 30px !important;
+      position: absolute;
+      left: -10px;
+      z-index: 999;
+    }
+  }
+
+  
+}

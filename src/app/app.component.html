@@ -1,0 +1,369 @@
+<section class="header">
+  <div class="container">
+    <div class="row">
+      <div class="header-left">
+        <h1 class="logo-white" alt="icheck">
+          <img src="/assets/images/logo-white.png" alt="icheck">
+        </h1>
+        <h3 class="description">truy xuất nguồn gốc sản phẩm</h3>
+        <p class="description"> <span><img src="/assets/images/gach.png" alt=""></span> hàng đầu Việt Nam <span><img src="/assets/images/gach.png" alt=""></span></p>
+        <a href="#whatisicheck" class="button-follow">tìm hiểu ngay</a>
+      </div>
+      <div class="header-right">
+        <img src="/assets/images/002.png" alt="">
+      </div>
+      <div class="clearfixed"></div>
+    </div>
+  </div>
+</section>
+
+<section class="what-is-icheck" id="whatisicheck">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/assets/images/001.png" alt="">
+      </div>
+      <div class="col-md-6">
+        <h2>iCheck là gì?</h2>
+        <p>iCheck là công ty tiên phong dẫn đầu trong việc phát triển ứng dụng mã số mã vạch truy xuất nguồn gốc thông tin sản phẩm nhằm bảo vệ Quyền lợi và Sức khoẻ người tiêu dùng. Cung cấp đầy đủ và chính thống thông tin sản phẩm từ doanh nghiệp sở hữu, doanh nghiệp sản xuất, đơn vị phân phối chính hãng. Hiện tại iCheck có 2 ứng dụng di động: iCheck và Barcode Việt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statistical">
+  <div class="container">
+    <p class="title">Những thông số ấn tượng về iCheck</p>
+    <div class="row">
+      <div class="col-md-4 col-12 col-sm-12 mb20">
+        <div class="item">
+          <div class="box-border"></div>
+          <div class="box-content">
+            <img src="/assets/images/icon-download.png" alt="">
+            <p>Hơn 12.000.000 người dùng</p>
+          </div>
+          <div class="clearfixed"></div>
+        </div>
+      </div>
+      
+
+      <div class="col-md-4 col-12 col-sm-12 mb20">
+        <div class="item">
+          <div class="box-border"></div>
+          <div class="box-content">
+            <img src="/assets/images/icon-scan.png" alt="">
+            <p>Hơn 1.000.000 lượt quét/ngày</p>
+          </div>
+          <div class="clearfixed"></div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12 col-sm-12 mb20">
+        <div class="item">
+          <div class="box-border"></div>
+          <div class="box-content">
+            <img src="/assets/images/icon-view.png" alt="">
+            <p>Hơn 300.000 lượt truy cập/ngày</p>
+          </div>
+          <div class="clearfixed"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="product-hot">
+  <div class="container">
+      <h2>Sản phẩm nổi bật</h2>
+      <ngx-slick-carousel class="carousel" 
+            #slickModal="slick-carousel" 
+            [config]="slideConfig" 
+            (init)="slickInit($event)"
+            (breakpoint)="breakpoint($event)"
+            (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let item of products.rows" class="slide">
+          <img src="{{ item.thumbnails.thumbnail }}" alt="" width="100%">
+          <p class="title">{{item.name}}</p>
+          <p class="price">{{item.price | currency:'VND':''}} đ</p>
+        </div>
+      </ngx-slick-carousel>
+  </div>
+</section>
+
+<div class="padding-top-benefit"></div>
+
+<section class="benefit">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="item" *ngFor="let benefit of benefits; index as i">
+          <div class="row">
+            <div class="col-md-2"><span [class.active]="benefit.active == true">{{i+1}}</span></div>
+            <div class="col-md-10">
+              <div class="title-content">
+                <h3 (click)="activeBenefit(benefit.id)" [class.active]="benefit.active == true">{{benefit.title}}</h3>
+                <div *ngIf="benefit.active == true">
+                  <div *ngFor="let value of benefit.content">
+                    <p class="content">{{value}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div *ngFor="let benefit of benefits">
+          <img *ngIf="benefit.active == true"  src="{{benefit.img}}" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Mobile custom-->
+<section class="benefit-mb">
+  <div class="container">
+    <div class="item" *ngFor="let benefit of benefits; index as i">
+      <div class="title">
+          <h3>
+            <span class="active">{{i+1}}</span> 
+            <span class="title">{{benefit.title}}</span>
+            <div class="clearfixed"></div>
+          </h3>
+      </div>
+      <div class="content">
+        <div *ngFor="let value of benefit.content">
+          <p class="content">{{value}}</p>
+        </div>
+      </div>
+      <div class="image">
+        <img src="{{benefit.img}}" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howtobuy">
+  <ngx-slick-carousel class="carousel" 
+      #slickModal="slick-carousel" 
+      [config]="HowtoBuyConfig" 
+      (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)"
+      (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+    <div ngxSlickItem *ngFor="let slide of howtobuys" class="slide">
+      <img src="{{ slide.img }}" alt="" width="100%">
+    </div>
+  </ngx-slick-carousel>
+</section>
+
+<!--Mobile custom-->
+<section class="howtobuy-mb">
+  <div class="item" *ngFor="let slide of howtobuys">
+    <img src="{{ slide.img }}" alt="" width="100%">
+  </div>
+</section>
+
+<section class="companyhot">
+  <div class="container">
+    <h3>Doanh nghiệp nổi bật</h3>
+    <ngx-slick-carousel class="carousel" 
+            #slickModal="slick-carousel" 
+            [config]="companyhotConfig" 
+            (init)="slickInit($event)"
+            (breakpoint)="breakpoint($event)"
+            (afterChange)="afterChange($event)"
+            (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let item of companys.rows" class="slide">
+          <img src="{{item.avatar_thumbnails.thumbnail}}" alt="" width="100%">
+        </div>
+      </ngx-slick-carousel>
+  </div>
+</section>
+
+<section class="guestreview">
+  <div class="container">
+    <h3>Khách hàng nói gì về iCheck?</h3>
+
+    <div class="list-reviews">
+      <div class="item" *ngFor="let item of guestreivew">
+        <img src="/assets/images/guestreview-icon.png" class="icon" alt="">
+        <div class="logo">
+          <img src="{{item.logo}}" alt="">
+        </div>
+        <div class="content">
+          <p>{{item.content}}</p>
+        </div>
+        <div class="name">
+          <p>{{item.name}}</p>
+        </div>
+      </div>
+      <div class="clearfixed"></div>
+    </div>
+  </div>
+</section>
+
+<section class="app-mobile">
+  <div class="container">
+    <h3>iCheck đã có mặt trên:</h3>
+    <p>
+      <img src="/assets/images/ios.png" alt="">
+      <img src="/assets/images/android.png" alt="">
+    </p>
+    <div class="clearfixed"></div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-12">
+        <div class="img">
+          <img src="/assets/images/contact.png" alt="">
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="form">
+          <h3> Hỗ trợ từ iCheck</h3>
+          <form [formGroup] = "frmUser" autocomplete="false"  novalidate="true" (ngSubmit)="onSubmitForm()">
+            <div class="form-group"> 
+              <input type="text" class="form-control" placeholder="Họ và tên" required="required" formControlName="name">
+              <p class="error" *ngIf="frmUser.controls.name.dirty == true && frmUser.controls.name.errors?.required == true"><i>Vui lòng nhập họ tên</i></p>
+              <p class="error" *ngIf="frmUser.controls.name.dirty == false && frmUser.controls.name.touched">Vui lòng nhập họ tên</p>
+            </div>
+            <div class="form-group"> 
+              <input type="text" class="form-control" placeholder="Số điện thoại" required="required" formControlName="phone">
+              <p class="error" *ngIf="frmUser.controls.phone.dirty == true && frmUser.controls.phone.errors?.required == true"><i>Vui lòng nhập số điện thoại</i></p>
+              <p class="error" *ngIf="frmUser.controls.phone.dirty == false && frmUser.controls.phone.touched">Vui lòng nhập số điện thoại</p>
+              <p class="error" *ngIf="frmUser.controls.phone.dirty == true && frmUser.controls.phone.errors?.pattern"><i>Số điện thoại không đúng định dạng</i></p>
+            </div>
+            <div class="form-group"> 
+              <input type="text" class="form-control" placeholder="Email" required="required" formControlName="email">
+              <p class="error" *ngIf="frmUser.controls.email.dirty == true && frmUser.controls.email.errors?.required == true"><i>Vui lòng nhập email</i></p>
+              <p class="error" *ngIf="frmUser.controls.email.dirty == true && frmUser.controls.email.errors?.pattern"><i>Email không đúng định dạng</i></p>
+              <p class="error" *ngIf="frmUser.controls.email.dirty == false  && frmUser.controls.email.touched">Vui lòng nhập email</p>
+            </div>
+            <div class="form-group">
+                <textarea maxlength="1000" class="form-control" rows="3" formControlName="content" placeholder="Ghi chú"></textarea>
+            </div>
+            <div class="form-group">
+              <button type="submit" [disabled]="frmUser.invalid" class=" form-control btn btn-primary">GỬI YÊU CẦU</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="footer">
+  <div class="container">
+    <div class="logofooter">
+        <img class="logo-footer" src="/assets/images/logo-footer.png" alt="">
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-12">
+        <div class="info">
+          <p class="phone">Điện thoại: <strong><a [attr.href]="'tel:0902195488'">090-219-5488</a></strong></p>
+          <p class="address">Địa chỉ: <strong>số 125, Nguyễn Ngọc Vũ, Hà Nội</strong></p>
+          <p class="email">Email: <strong><a [attr.href]="'mailto:cskh@icheck.vn'">cskh@icheck.vn</a></strong></p>
+          <p class="website">Website: <strong><a href="https://icheck.com.vn">icheck.com.vn</a></strong></p>
+          <a href="http://online.gov.vn/HomePage/WebsiteDisplay.aspx?DocId=40508">
+            <img class="dadangky" src="/assets/images/dadangky.png" alt="">
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12">
+        <div class="lienket">
+          <h3>Liên Kết Hữu Ích</h3>
+          <a href="#">Đăng ký mã vạch</a>
+          <a href="#">Truy xuất mã vạch</a>
+          <a href="#">Tem chống hàng giả</a>
+          <a href="#">Tem truy xuất nguồn gốc</a>
+          <a href="#">Cách đọc mã vạch</a>
+          <a href="#">Mã vạch các nước</a>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-12">
+        <div class="fanpage">
+          <h3>Kết nối Fanpage với chúng tôi</h3>
+          <div class="frame"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+<!-- Modal Thankyou-->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <div class="modal-content">
+      <div class="thankyou">
+        <div class="close-modal">
+          <button type="button" class="btn btn-default" data-dismiss="modal"></button>
+        </div>
+        <div class="logo">
+            <img  src="/assets/images/logo-white.png" alt="">
+        </div>
+        <h3>CẢM ƠN BẠN ĐÃ QUAN TÂM ĐẾN ICHECK</h3>
+        <p>iCheck đã nhận được thông tin từ bạn. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+        <div class="image-thankyou">
+          <img src="/assets/images/call-thankyou.png" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal Contact-->
+<div class="modal fade" id="modalContact" role="dialog">
+  <div class="modal-dialog">
+  
+    <div class="modal-content">
+      <div class="contact-modal">
+        <div class="close-modal">
+          <button type="button" class="btn btn-default" data-dismiss="modal"></button>
+        </div>
+        <div class="container">
+            <h3>Hỗ trợ từ iCheck</h3>
+            <form [formGroup] = "frmUserModal" autocomplete="false"  novalidate="true" (ngSubmit)="onSubmitFormModal()">
+                <div class="form-group"> 
+                  <input type="text" class="form-control" placeholder="Họ và tên" required="required" formControlName="name">
+                  <p class="error" *ngIf="frmUserModal.controls.name.dirty == true && frmUserModal.controls.name.errors?.required == true"><i>Vui lòng nhập họ tên</i></p>
+                  <p class="error" *ngIf="frmUserModal.controls.name.dirty == false && frmUserModal.controls.name.touched">Vui lòng nhập họ tên</p>
+                </div>
+                <div class="form-group"> 
+                  <input type="text" class="form-control" placeholder="Số điện thoại" required="required" formControlName="phone">
+                  <p class="error" *ngIf="frmUserModal.controls.phone.dirty == true && frmUserModal.controls.phone.errors?.required == true"><i>Vui lòng nhập số điện thoại</i></p>
+                  <p class="error" *ngIf="frmUserModal.controls.phone.dirty == false && frmUserModal.controls.phone.touched">Vui lòng nhập số điện thoại</p>
+                  <p class="error" *ngIf="frmUserModal.controls.phone.dirty == true && frmUserModal.controls.phone.errors?.pattern"><i>Số điện thoại không đúng định dạng</i></p>
+                </div>
+                <div class="form-group"> 
+                  <input type="text" class="form-control" placeholder="Email" required="required" formControlName="email">
+                  <p class="error" *ngIf="frmUserModal.controls.email.dirty == true && frmUserModal.controls.email.errors?.required == true"><i>Vui lòng nhập email</i></p>
+                  <p class="error" *ngIf="frmUserModal.controls.email.dirty == true && frmUserModal.controls.email.errors?.pattern"><i>Email không đúng định dạng</i></p>
+                  <p class="error" *ngIf="frmUserModal.controls.email.dirty == false  && frmUserModal.controls.email.touched">Vui lòng nhập email</p>
+                </div>
+                <div class="form-group">
+                    <textarea maxlength="1000" class="form-control" rows="3" formControlName="content" placeholder="Ghi chú"></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" [disabled]="frmUserModal.invalid" class=" form-control btn btn-primary adduser">GỬI YÊU CẦU</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
